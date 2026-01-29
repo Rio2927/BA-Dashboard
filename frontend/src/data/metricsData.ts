@@ -8,7 +8,7 @@ export const metrics = [
     change: '+12.5%',
     isPositive: true,
     Icon: DollarSign,
-    bgGradient: 'from-blue-600 to-blue-400',
+    bgGradient: 'accent',
   },
   {
     label: 'Active Users',
@@ -16,7 +16,7 @@ export const metrics = [
     change: '+8.2%',
     isPositive: true,
     Icon: Users,
-    bgGradient: 'from-purple-600 to-purple-400',
+    bgGradient: 'accent',
   },
   {
     label: 'Total Orders',
@@ -24,7 +24,7 @@ export const metrics = [
     change: '-2.1%',
     isPositive: false,
     Icon: ShoppingCart,
-    bgGradient: 'from-orange-600 to-orange-400',
+    bgGradient: 'accent',
   },
   {
     label: 'Conversion Rate',
@@ -32,6 +32,6 @@ export const metrics = [
     change: '+1.3%',
     isPositive: true,
     Icon: Activity,
-    bgGradient: 'from-green-600 to-green-400',
+    bgGradient: 'accent',
   },
 ];

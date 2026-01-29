@@ -8,14 +8,14 @@ const topProducts = [
 ];
 
 const TopProducts: React.FC = () => (
-  <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 border border-slate-600 shadow-xl">
-    <h2 className="text-xl font-bold text-white mb-2">Top Products</h2>
-    <p className="text-slate-400 text-sm mb-6">Best sellers this month</p>
+  <div className="card-surface rounded-2xl p-4 md:p-6 lg:p-8 border shadow-xl" style={{ borderColor: 'var(--border)' }}>
+    <h2 className="text-lg md:text-xl font-bold mb-2">Top Products</h2>
+    <p className="muted text-xs md:text-sm mb-4 md:mb-6">Best sellers this month</p>
     <div className="space-y-3">
       {topProducts.map((product) => (
-        <div key={product.id} className="bg-slate-700/50 rounded-lg p-4 hover:bg-slate-700 transition-colors group cursor-pointer">
+        <div key={product.id} className="bg-slate-700/50 rounded-lg p-4 hover:bg-slate-700 transition-colors group cursor-pointer product-item">
           <div className="flex items-center justify-between mb-2">
-            <p className="text-white font-semibold text-sm group-hover:text-blue-400 transition-colors">
+            <p className="font-semibold text-sm product-name" style={{ color: 'var(--text)' }}>
               {product.name}
             </p>
             <span className={`text-xs font-bold px-2 py-1 rounded ${
@@ -28,9 +28,9 @@ const TopProducts: React.FC = () => (
           </div>
           <div className="flex items-center gap-2">
             <div className="flex-1 bg-slate-600 rounded-full h-2 overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-500 to-purple-500 h-full" style={{ width: `${(product.sales / 1540) * 100}%` }}></div>
+              <div className="h-full accent-fill" style={{ width: `${(product.sales / 1540) * 100}%`, background: 'var(--accent-start)' }}></div>
             </div>
-            <span className="text-slate-400 text-xs font-semibold">${product.revenue.toLocaleString()}</span>
+            <span className="muted text-xs font-semibold">${product.revenue.toLocaleString()}</span>
           </div>
         </div>
       ))}

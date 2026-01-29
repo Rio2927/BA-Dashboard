@@ -18,33 +18,34 @@ interface RevenueChartProps {
 
 const RevenueChart: React.FC<RevenueChartProps> = ({ data }) => {
   return (
-    <div className="col-span-2 bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 border border-slate-600 shadow-xl">
-      <div className="flex items-center justify-between mb-6">
+    <div className="lg:col-span-2 card-surface rounded-2xl p-4 md:p-6 lg:p-8 border shadow-xl" style={{ borderColor: 'var(--border)' }}>
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 md:mb-6 gap-3">
         <div>
-          <h2 className="text-xl font-bold text-white">Revenue Overview</h2>
-          <p className="text-slate-400 text-sm">Monthly revenue vs target</p>
+          <h2 className="text-lg md:text-xl font-bold">Revenue Overview</h2>
+          <p className="muted text-xs md:text-sm">Monthly revenue vs target</p>
         </div>
-        <button className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-slate-300 rounded-lg text-sm transition-colors">
+        <button className="px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm transition-colors" style={{ backgroundColor: 'var(--accent-start)', color: 'var(--card-bg)' }}>
           Export
         </button>
       </div>
 
-      <ResponsiveContainer width="100%" height={320}>
+      <ResponsiveContainer width="100%" height={280}>
         <ComposedChart data={data}>
           <defs>
             <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3} />
-              <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+              <stop offset="5%" stopColor="var(--accent-start)" stopOpacity={0.22} />
+              <stop offset="95%" stopColor="var(--accent-start)" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
-          <XAxis dataKey="month" stroke="#94a3b8" />
-          <YAxis stroke="#94a3b8" />
+          <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
+          <XAxis dataKey="month" stroke="var(--muted)" />
+          <YAxis stroke="var(--muted)" />
           <Tooltip
             contentStyle={{
-              backgroundColor: '#1e293b',
-              border: '1px solid #475569',
+              backgroundColor: 'var(--card-bg)',
+              border: '1px solid var(--border)',
               borderRadius: '8px',
+              color: 'var(--text)'
             }}
           />
           <Legend wrapperStyle={{ paddingTop: '20px' }} />
@@ -52,14 +53,14 @@ const RevenueChart: React.FC<RevenueChartProps> = ({ data }) => {
             type="monotone"
             dataKey="revenue"
             fill="url(#colorRevenue)"
-            stroke="#3b82f6"
+            stroke="var(--accent-start)"
             strokeWidth={3}
             name="Revenue"
           />
           <Line
             type="monotone"
             dataKey="target"
-            stroke="#8b5cf6"
+            stroke="var(--muted)"
             strokeWidth={2}
             strokeDasharray="5 5"
             name="Target"

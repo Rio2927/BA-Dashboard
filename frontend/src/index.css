@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+:root{
+	--bg: #ffffff;
+	--card-bg: #ffffff;
+	--muted: #6b7280;
+	--text: #0f172a;
+	--accent-start: #111827;
+	--accent-end: #374151;
+	--border: rgba(0,0,0,0.08);
+	color-scheme: light;
+}
+
+:root.dark{
+	--bg: #000000;
+	--card-bg: #000000;
+	--muted: #94A3B8;
+	--text: #ffffff;
+	--accent-start: #ffffff;
+	--accent-end: #9CA3AF;
+	--border: rgba(255,255,255,0.06);
+	color-scheme: dark;
+}
+
+html,body,#root{
+	height:100%;
+}
+
+body{
+	background: var(--bg);
+	transition: background-color 220ms ease, color 220ms ease;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.card-surface{
+	background-color: var(--card-bg);
+	backdrop-filter: blur(6px);
+	box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+
+body { color: var(--text); }
+
+/* Accent utilities (single-color-friendly) */
+.accent-bg { background: linear-gradient(90deg, var(--accent-start), var(--accent-end)); }
+.accent-fill { background: var(--accent-start); }
+.accent-text { color: var(--accent-start); }
+.accent-active { background: var(--accent-start); color: var(--card-bg); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+
+.product-name { transition: color 180ms ease; }
+.product-item:hover .product-name { color: var(--accent-start); }
+
+.muted { color: var(--muted); }
+

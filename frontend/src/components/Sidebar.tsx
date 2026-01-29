@@ -14,15 +14,19 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, activeTab, setActiveTab,
     <div
       className={`${
         sidebarOpen ? 'w-64' : 'w-20'
-      } bg-gradient-to-b from-slate-950 to-slate-900 border-r border-slate-700 transition-all duration-300 flex flex-col shadow-2xl`}
+      } card-surface border-r transition-all duration-300 flex flex-col shadow-2xl
+      fixed md:relative inset-y-0 left-0 z-50 md:z-auto
+      ${!sidebarOpen && 'md:block hidden'}
+      `}
+      style={{ borderColor: 'var(--border)' }}
     >
-      <div className="h-20 flex items-center justify-between px-6 border-b border-slate-700">
+      <div className="h-16 md:h-20 flex items-center justify-between px-4 md:px-6 border-b border-slate-700">
         {sidebarOpen && (
-          <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+          <span className="text-2xl font-bold" style={{ color: 'var(--text)' }}>
             Analytics
           </span>
         )}
-        <button onClick={toggleSidebar} className="text-slate-400 hover:text-white transition-colors">
+        <button onClick={toggleSidebar} className="muted hover:opacity-80 transition-opacity">
           {sidebarOpen ? '✖' : '☰'}
         </button>
       </div>
@@ -40,8 +44,8 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, activeTab, setActiveTab,
             onClick={() => setActiveTab(item.id)}
             className={`w-full flex items-center gap-4 px-4 py-3 rounded-lg transition-all ${
               activeTab === item.id
-                ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/50'
-                : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+                ? 'accent-active'
+                : 'muted hover:opacity-100'
             }`}
           >
             {sidebarOpen && <span className="font-medium">{item.name}</span>}

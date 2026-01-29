@@ -22,8 +22,8 @@ const recentTransactions: Transaction[] = [
 ];
 
 const RecentTransactions: React.FC = () => (
-  <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 border border-slate-600 shadow-xl">
-    <h2 className="text-xl font-bold text-white mb-6">Recent Transactions</h2>
+  <div className="card-surface rounded-2xl p-4 md:p-6 lg:p-8 border shadow-xl" style={{ borderColor: 'var(--border)' }}>
+    <h2 className="text-lg md:text-xl font-bold mb-4 md:mb-6">Recent Transactions</h2>
     <div className="space-y-3">
       {recentTransactions.map((transaction) => (
         <div
@@ -31,16 +31,16 @@ const RecentTransactions: React.FC = () => (
           className="bg-slate-700/50 rounded-lg p-4 hover:bg-slate-700 transition-colors flex items-center justify-between group cursor-pointer"
         >
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white text-sm font-bold">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style={{ background: 'var(--accent-start)', color: 'var(--card-bg)' }}>
               {transaction.customer.charAt(0)}
             </div>
             <div>
-              <p className="text-white font-semibold text-sm">{transaction.customer}</p>
-              <p className="text-slate-400 text-xs">{transaction.date}</p>
+              <p className="font-semibold text-sm" style={{ color: 'var(--text)' }}>{transaction.customer}</p>
+              <p className="muted text-xs">{transaction.date}</p>
             </div>
           </div>
           <div className="text-right">
-            <p className="text-white font-bold">{transaction.amount}</p>
+            <p className="font-bold" style={{ color: 'var(--text)' }}>{transaction.amount}</p>
             <span
               className={`text-xs font-semibold px-2 py-1 rounded-full inline-block ${
                 transaction.status === "Completed"
