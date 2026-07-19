@@ -45,7 +45,7 @@ const SalesDistribution: React.FC<SalesDistributionProps> = ({ data }) => {
               paddingAngle={2}
               dataKey="value"
             >
-              {data.map((entry, index) => (
+              {data.map((_entry, index) => (
                 <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
               ))}
             </Pie>

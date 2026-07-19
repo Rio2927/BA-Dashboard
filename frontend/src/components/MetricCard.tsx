@@ -13,7 +13,7 @@ interface MetricCardProps {
   loading?: boolean;
 }
 
-const MetricCard: React.FC<MetricCardProps> = ({ label, value, change, isPositive, Icon, bgGradient, loading = false }) => {
+const MetricCard: React.FC<MetricCardProps> = ({ label, value, change, isPositive, Icon, bgGradient: _bgGradient, loading = false }) => {
   return (
     <div className="card-surface rounded-2xl p-6 border transition-all hover:shadow-2xl group cursor-pointer transform hover:scale-105 duration-300" style={{ borderColor: 'var(--border)' }}>
       <div className="flex items-center justify-between mb-4">
