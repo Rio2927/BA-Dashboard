@@ -49,7 +49,7 @@ export default function AnalyticsDashboard() {
         toggleSidebar={() => setSidebarOpen(!sidebarOpen)}
       />
       <div className="flex-1 flex flex-col overflow-hidden">
-        <Topbar title="Dashboard 6" subtitle="Welcome back! Here's your business performance" onMenuClick={() => setSidebarOpen(true)} />
+        <Topbar title="Dashboard 6...." subtitle="Welcome back! Here's your business performance" onMenuClick={() => setSidebarOpen(true)} />
         <main className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 space-y-6 md:space-y-8">
           {/* Render page content based on activeTab */}
           {activeTab === 'overview' && (
